@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres  # Replace with your PostgreSQL username
+  password: root  # Replace with your PostgreSQL password
+  host: localhost  # Change this if your database is on a remote server
+
+development:
+  <<: *default
+  database: simple_rails_app  # Replace with your desired development database name
+
+test:
+  <<: *default
+  database: imple_rails_app_test  # Replace with your desired test database name
+
+production:
+  <<: *default
+  database: production_simple_rails_app  # Replace with your desired production database name
+  username: postgres  # Replace with your production username
+  password: <%= ENV['DATABASE_PASSWORD'] %>  # Use environment variables for security
